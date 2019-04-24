@@ -12,6 +12,9 @@ import RecipesContainer from '../../containers/Recipes';
 import RecipeListingComponent from '../components/Recipe/Listing';
 import RecipeSingleComponent from '../components/Recipe/Single';
 
+import CrawlContainer from '../../containers/Crawl';
+import CrawlComponent from '../components/Crawl/Crawler';
+
 import SignUpContainer from '../../containers/SignUp';
 import SignUpComponent from '../components/User/SignUp';
 
@@ -82,6 +85,14 @@ const Index = () => (
       render={props => (
         <TemplateSidebar pageTitle="Recipe View">
           <RecipesContainer {...props} Layout={RecipeSingleComponent} />
+        </TemplateSidebar>
+      )}
+    />
+    <Route
+      path="/crawl"
+      render={props => (
+        <TemplateSidebar pageTitle="Crawl">
+          <CrawlContainer {...props} Layout={CrawlComponent} />
         </TemplateSidebar>
       )}
     />
