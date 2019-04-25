@@ -14,9 +14,9 @@ const SidebarNavItems = () => (
     </NavItem>
     <NavItem>
       <Link className={`nav-link ${window.location.pathname.startsWith('/crawl') && 'active'}`} to="/crawl">
-        <i className="icon-star" />
+        <i className="icon-magic-wand" />
         {' '}
-        <span>Start Crawling</span>
+        <span>Crawler</span>
       </Link>
     </NavItem>
     <NavItem>
