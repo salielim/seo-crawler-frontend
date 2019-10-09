@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ReactTable from 'react-table';
 import matchSorter from 'match-sorter';
+import { Spinner } from 'reactstrap';
 import 'react-table/react-table.css';
 
 const crawlApi = 'https://us-central1-noderite-crawler.cloudfunctions.net/crawl';
@@ -12,46 +13,23 @@ class Table extends Component {
   };
 
   componentDidMount() {
-    const crawledData = this.state;
-    // axios
-    //   .post(
-    //     crawlApi,
-    //     { queueUrl: 'http://books.toscrape.com' },
-    //     {
-    //       headers: {
-    //         'Content-Type': 'application/json',
-    //       },
-    //     },
-    //   )
-    //   .then(response => response.data)
-    //   .then((data) => {
-    //     this.setState({ crawledData: data.data });
-    //   })
-    //   .catch((error) => {
-    //     console.log('error: ', error);
-    //   });
-    this.setState({
-      crawledData: [
+    axios
+      .post(
+        crawlApi,
+        { queueUrl: 'http://books.toscrape.com' },
         {
-          url: 'http://books.toscrape.com/',
-          title: '\n    All products | Books to Scrape - Sandbox\n',
-          h1: 'All products',
-          h2: '',
+          headers: {
+            'Content-Type': 'application/json',
+          },
         },
-        {
-          url: 'http://books.toscrape.com/catalogue/category/books/travel_2/index.html',
-          title: '\n    Travel | \n     Books to Scrape - Sandbox\n\n',
-          h1: 'Travel',
-          h2: '',
-        },
-        {
-          url: 'http://books.toscrape.com/catalogue/category/books/sequential-art_5/index.html',
-          title: '\n    Sequential Art | \n     Books to Scrape - Sandbox\n\n',
-          h1: 'Sequential Art',
-          h2: '',
-        },
-      ],
-    });
+      )
+      .then(response => response.data)
+      .then((data) => {
+        this.setState({ crawledData: data.data });
+      })
+      .catch((error) => {
+        console.log('error: ', error);
+      });
   }
 
   render() {
@@ -84,14 +62,14 @@ class Table extends Component {
     ];
     return (
       <div>
-        {crawledData.length > 0 && (
+        {crawledData.length > 0 ? (
           <ReactTable
             data={crawledData}
             columns={crawledDataCol}
             filterable
             defaultFilterMethod={(filter, row) => String(row[filter.id]) === filter.value}
           />
-        )}
+        ) : <Spinner color="secondary" />}
       </div>
     );
   }

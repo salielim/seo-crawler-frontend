@@ -9,7 +9,7 @@ const Trial = () => (
     <Helmet>
       <title>Try the Crawler</title>
     </Helmet>
-    <h3>Try</h3>
+    <h3>Try the Crawler</h3>
     <Table />
   </Container>
 );
