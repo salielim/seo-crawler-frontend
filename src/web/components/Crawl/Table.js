@@ -76,7 +76,7 @@ class Table extends Component {
             <br />
             <br />
             Showing the first 20 results, check out our&nbsp;
-            <Link to="pricing">pricing</Link> page if you'll like to crawl more
+            <Link to="pricing" target="_blank">pricing</Link> page if you would like to crawl more
             results.
             <br />
             <ReactTable
