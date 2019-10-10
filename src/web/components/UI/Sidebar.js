@@ -9,21 +9,21 @@ const SidebarNavItems = () => (
       <Link className={`nav-link ${window.location.pathname === '/' && 'active'}`} to="/">
         <i className="icon-home" />
         {' '}
-        <span>Home</span>
+        <span>Learn more</span>
       </Link>
     </NavItem>
     <NavItem>
       <Link className={`nav-link ${window.location.pathname.startsWith('/crawl') && 'active'}`} to="/crawl">
         <i className="icon-magic-wand" />
         {' '}
-        <span>Crawler</span>
+        <span>Try now</span>
       </Link>
     </NavItem>
     <NavItem>
-      <Link className={`nav-link ${window.location.pathname.startsWith('/recipe') && 'active'}`} to="/recipes">
-        <i className="icon-notebook" />
+      <Link className={`nav-link ${window.location.pathname.startsWith('/pricing') && 'active'}`} to="/pricing">
+        <i className="icon-magic-wand" />
         {' '}
-        <span>Blog</span>
+        <span>Pricing</span>
       </Link>
     </NavItem>
   </div>

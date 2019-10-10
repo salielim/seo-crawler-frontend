@@ -3,9 +3,11 @@ import axios from 'axios';
 import ReactTable from 'react-table';
 import matchSorter from 'match-sorter';
 import { Spinner } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import 'react-table/react-table.css';
 
-const crawlApi = 'https://us-central1-noderite-crawler.cloudfunctions.net/crawl';
+const crawlApi =
+  'https://us-central1-noderite-crawler.cloudfunctions.net/crawl';
 
 class Table extends Component {
   state = {
@@ -13,63 +15,88 @@ class Table extends Component {
   };
 
   componentDidMount() {
+    const { domainUrl } = this.props;
     axios
       .post(
         crawlApi,
-        { queueUrl: 'http://books.toscrape.com' },
+        { queueUrl: domainUrl },
         {
           headers: {
             'Content-Type': 'application/json',
           },
-        },
+        }
       )
       .then(response => response.data)
-      .then((data) => {
+      .then(data => {
         this.setState({ crawledData: data.data });
       })
-      .catch((error) => {
+      .catch(error => {
         console.log('error: ', error);
       });
   }
 
   render() {
     const { crawledData } = this.state;
+    const { domainUrl } = this.props;
+
     const crawledDataCol = [
       {
         Header: 'url',
         accessor: 'url',
-        filterMethod: (filter, rows) => matchSorter(rows, filter.value, { keys: ['url'] }),
+        filterMethod: (filter, rows) =>
+          matchSorter(rows, filter.value, { keys: ['url'] }),
         filterAll: true,
       },
       {
         Header: 'title',
         accessor: 'title',
-        filterMethod: (filter, rows) => matchSorter(rows, filter.value, { keys: ['title'] }),
+        filterMethod: (filter, rows) =>
+          matchSorter(rows, filter.value, { keys: ['title'] }),
         filterAll: true,
       },
       {
         Header: 'h1',
         accessor: 'h1',
-        filterMethod: (filter, rows) => matchSorter(rows, filter.value, { keys: ['h1'] }),
+        filterMethod: (filter, rows) =>
+          matchSorter(rows, filter.value, { keys: ['h1'] }),
         filterAll: true,
       },
       {
         Header: 'h2',
         accessor: 'h2',
-        filterMethod: (filter, rows) => matchSorter(rows, filter.value, { keys: ['h2'] }),
+        filterMethod: (filter, rows) =>
+          matchSorter(rows, filter.value, { keys: ['h2'] }),
         filterAll: true,
       },
     ];
     return (
       <div>
         {crawledData.length > 0 ? (
-          <ReactTable
-            data={crawledData}
-            columns={crawledDataCol}
-            filterable
-            defaultFilterMethod={(filter, row) => String(row[filter.id]) === filter.value}
-          />
-        ) : <Spinner color="secondary" />}
+          <div>
+            <br />
+            <br />
+            Showing the first 20 results, check out our&nbsp;
+            <Link to="pricing">pricing</Link> page if you'll like to crawl more
+            results.
+            <br />
+            <ReactTable
+              data={crawledData}
+              columns={crawledDataCol}
+              filterable
+              defaultFilterMethod={(filter, row) =>
+                String(row[filter.id]) === filter.value
+              }
+            />
+          </div>
+        ) : (
+          <div>
+            <br />
+            <br />
+            Now crawling <b>{domainUrl}</b>, this should take a few minutes.
+            <br />
+            <Spinner color="secondary" />
+          </div>
+        )}
       </div>
     );
   }
