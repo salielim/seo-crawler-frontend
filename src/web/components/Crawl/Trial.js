@@ -23,7 +23,6 @@ class Trial extends Component {
       this.setState({ domainUrlSubmitted: domainUrl });
     } else {
       this.setState({ domainUrlSubmitted: 'http://books.toscrape.com' });
-
     }
   };
 
@@ -41,9 +40,10 @@ class Trial extends Component {
         </Helmet>
         <h3>Try the Crawler</h3>
         <p>
-        This demo shows the first 20 results of the crawl.
-        <br />
-        Enter the domain URL you'd like to crawl and sign up to our updates (no spam ever, we promise).
+          This demo shows the first 20 results of the crawl.
+          <br />
+          Enter the domain URL you'd like to crawl and sign up to our updates
+          (no spam ever, we promise).
         </p>
         <Form inline>
           <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
