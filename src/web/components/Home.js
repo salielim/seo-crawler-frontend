@@ -1,26 +1,22 @@
 import React from 'react';
-import { Row, Col, Jumbotron } from 'reactstrap';
+import { Row, Jumbotron } from 'reactstrap';
 
 const About = () => (
   <div>
     <Row>
       <Jumbotron className="bg-primary text-white">
-        <h1>
-          Web & Mobile App Starter Kit
-        </h1>
+        <h1>Content Crawler for Content Managers</h1>
         <p className="lead">
-          For when you're looking to build 'the next big thing', but don't
-          want to start from scratch.
+          Analyse, monitor and improve web content
         </p>
         <p>
-          This App Starter Kit is built for those who need both a web app + mobile app, and don't
-          want to write and maintain two different code bases. The project shares the 'business
-          logic' and allows flexibility in View components to ensure your project looks and feels
-          native in each platform.
+          The CrawlBot is built for those who need to maintain content on
+          websites. For when you're looking to analyse, track and improve content but
+          don't want to look through each webpage. With this app you can easily manage content and ensure that it meets SEO requirements.
         </p>
       </Jumbotron>
     </Row>
-    <Row className="pt-md-2">
+    {/* <Row className="pt-md-2">
       <Col xs="12" md="4" className="pt-3 pt-md-0">
         <h3>
           <i className="icon-map" />
@@ -136,7 +132,7 @@ const About = () => (
           and I'll provide a quote.
         </p>
       </Col>
-    </Row>
+    </Row> */}
   </div>
 );
 

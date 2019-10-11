@@ -55,6 +55,13 @@ class Table extends Component {
         filterAll: true,
       },
       {
+        Header: 'Meta Description',
+        accessor: 'metaDescription',
+        filterMethod: (filter, rows) =>
+          matchSorter(rows, filter.value, { keys: ['metaDescription'] }),
+        filterAll: true,
+      },
+      {
         Header: 'H1',
         accessor: 'h1',
         filterMethod: (filter, rows) =>
