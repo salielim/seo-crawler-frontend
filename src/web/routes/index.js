@@ -13,7 +13,7 @@ import RecipeListingComponent from '../components/Recipe/Listing';
 import RecipeSingleComponent from '../components/Recipe/Single';
 
 import CrawlContainer from '../../containers/Crawl';
-import CrawlTrialComponent from '../components/Crawl/Trial';
+import CrawlDemoComponent from '../components/Crawl/Demo';
 
 import SignUpContainer from '../../containers/SignUp';
 import SignUpComponent from '../components/User/SignUp';
@@ -95,7 +95,7 @@ const Index = () => (
       path="/crawl"
       render={props => (
         <TemplateSidebar pageTitle="Crawl">
-          <CrawlContainer {...props} Layout={CrawlTrialComponent} />
+          <CrawlContainer {...props} Layout={CrawlDemoComponent} />
         </TemplateSidebar>
       )}
     />

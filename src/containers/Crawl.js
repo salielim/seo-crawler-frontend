@@ -1,9 +1,9 @@
 import React from 'react';
-import Trial from '../web/components/Crawl/Trial';
+import Demo from '../web/components/Crawl/Demo';
 
 const Crawl = () => (
   <div>
-    <Trial />
+    <Demo />
   </div>
 );
 

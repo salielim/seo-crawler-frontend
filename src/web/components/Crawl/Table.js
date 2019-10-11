@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import 'react-table/react-table.css';
 
 const crawlApi =
-  'https://us-central1-noderite-crawler.cloudfunctions.net/crawl';
+  'https://us-central1-noderite-crawler.cloudfunctions.net/crawl-demo-dev ';
 
 class Table extends Component {
   state = {
@@ -41,28 +41,28 @@ class Table extends Component {
 
     const crawledDataCol = [
       {
-        Header: 'url',
+        Header: 'URL',
         accessor: 'url',
         filterMethod: (filter, rows) =>
           matchSorter(rows, filter.value, { keys: ['url'] }),
         filterAll: true,
       },
       {
-        Header: 'title',
+        Header: 'Title',
         accessor: 'title',
         filterMethod: (filter, rows) =>
           matchSorter(rows, filter.value, { keys: ['title'] }),
         filterAll: true,
       },
       {
-        Header: 'h1',
+        Header: 'H1',
         accessor: 'h1',
         filterMethod: (filter, rows) =>
           matchSorter(rows, filter.value, { keys: ['h1'] }),
         filterAll: true,
       },
       {
-        Header: 'h2',
+        Header: 'H2',
         accessor: 'h2',
         filterMethod: (filter, rows) =>
           matchSorter(rows, filter.value, { keys: ['h2'] }),
@@ -76,8 +76,10 @@ class Table extends Component {
             <br />
             <br />
             Showing the first 20 results, check out our&nbsp;
-            <Link to="pricing" target="_blank">pricing</Link> page if you would like to crawl more
-            results.
+            <Link to="pricing" target="_blank">
+              pricing
+            </Link>{' '}
+            page if you would like to crawl more results.
             <br />
             <ReactTable
               data={crawledData}

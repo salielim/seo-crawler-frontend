@@ -4,7 +4,7 @@ import { Container, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
 import Table from './Table';
 
-class Trial extends Component {
+class Demo extends Component {
   state = {
     showTable: false,
     domainUrl: '',
@@ -42,8 +42,8 @@ class Trial extends Component {
         <p>
           This demo shows the first 20 results of the crawl.
           <br />
-          Enter the domain URL you'd like to crawl and sign up to our updates
-          (no spam ever, we promise).
+          Enter the domain URL you'd like to crawl 
+          {/* and sign up to our updates (no spam ever, we promise). */}
         </p>
         <Form inline>
           <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
@@ -60,8 +60,7 @@ class Trial extends Component {
               onChange={this.handleDomainUrlChange}
             />
           </FormGroup>
-
-          <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+          {/* <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
             <Label for="exampleEmail" className="mr-sm-2">
               Email
             </Label>
@@ -71,7 +70,7 @@ class Trial extends Component {
               id="exampleEmail"
               placeholder="contact@company.com"
             />
-          </FormGroup>
+          </FormGroup> */}
           <Button onClick={this.handleSubmit}>Submit</Button>
         </Form>
         <div>{showTable && <Table domainUrl={domainUrlSubmitted} />}</div>
@@ -79,4 +78,4 @@ class Trial extends Component {
     );
   }
 }
-export default Trial;
+export default Demo;
