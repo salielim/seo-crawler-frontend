@@ -4,13 +4,14 @@
 
 .sidebar {
   position: fixed;
-  top: 56px;
+  top: 53px;
   bottom: 0;
   left: 0;
   z-index: 1000;
   padding: 0;
   overflow-x: hidden;
-  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  overflow-y: auto;
+  /* Scrollable contents if viewport is shorter than content. */
   background-color: #22262E;
   border-right: 1px solid #252931;
 
@@ -21,7 +22,7 @@
   .nav-item {
     width: 100%;
 
-    & + .nav-item {
+    &+.nav-item {
       margin-left: 0;
     }
   }
@@ -40,7 +41,8 @@
       position: absolute;
     }
 
-    &.active, &:hover {
+    &.active,
+    &:hover {
       color: white;
     }
 

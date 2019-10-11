@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 const SidebarNavItems = () => (
   <div>
     <NavItem>
+      <br />
       <Link className={`nav-link ${window.location.pathname === '/' && 'active'}`} to="/">
         <i className="icon-map" />
         &nbsp;&nbsp;

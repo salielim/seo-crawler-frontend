@@ -4,11 +4,9 @@ import {
   Nav,
   Navbar,
   Collapse,
-  DropdownMenu,
-  DropdownItem,
   NavbarToggler,
-  DropdownToggle,
   UncontrolledDropdown,
+  Button,
 } from 'reactstrap';
 import { Link, withRouter } from 'react-router-dom';
 import Config from '../../../constants/config';
@@ -56,7 +54,8 @@ class Header extends Component {
       <header>
         <Navbar dark color="primary" expand="sm" className="fixed-top">
           <Link to="/" className="navbar-brand" style={{ color: '#FFF' }}>
-            <i className="icon-vector" />&nbsp;
+            <i className="icon-vector" />
+            &nbsp;
             {Config.appName}
           </Link>
           <NavbarToggler onClick={this.toggleDropDown} />
@@ -64,32 +63,32 @@ class Header extends Component {
             <Nav className="ml-auto" navbar>
               <div className="d-block d-sm-none">{SidebarNavItems()}</div>
               <UncontrolledDropdown nav>
-                <DropdownToggle nav caret>
+                {/* <DropdownToggle nav caret>
                   {loggedIn ? `Hi, ${member.firstName}` : 'Login / Sign Up'}
                 </DropdownToggle>
-                <DropdownMenu>
-                  {!loggedIn && (
-                    <div>
-                      <DropdownItem tag={Link} to="/login">
-                        Login
-                      </DropdownItem>
-                      <DropdownItem tag={Link} to="/sign-up">
-                        Sign Up
-                      </DropdownItem>
-                    </div>
-                  )}
-                  {loggedIn && (
-                    <div>
-                      <DropdownItem tag={Link} to="/update-profile">
-                        Update Profile
-                      </DropdownItem>
-                      <DropdownItem divider />
-                      <DropdownItem tag="button" onClick={this.onLogout}>
-                        Logout
-                      </DropdownItem>
-                    </div>
-                  )}
-                </DropdownMenu>
+                <DropdownMenu> */}
+                {!loggedIn && (
+                  <div>
+                    <Button tag={Link} to="/sign-up" color="primary">
+                      Sign Up
+                    </Button>
+                    <Button tag={Link} to="/login" color="primary">
+                      Login
+                    </Button>
+                  </div>
+                )}
+                {loggedIn && (
+                  <div>
+                    <Button tag={Link} to="/update-profile">
+                      Update Profile
+                    </Button>
+                    <Button divider />
+                    <Button tag="button" onClick={this.onLogout}>
+                      Logout
+                    </Button>
+                  </div>
+                )}
+                {/* </DropdownMenu> */}
               </UncontrolledDropdown>
             </Nav>
           </Collapse>

@@ -60,7 +60,10 @@ const Index = () => (
       path="/forgot-password"
       render={props => (
         <TemplateNothing pageTitle="Forgot Password">
-          <ForgotPasswordContainer {...props} Layout={ForgotPasswordComponent} />
+          <ForgotPasswordContainer
+            {...props}
+            Layout={ForgotPasswordComponent}
+          />
         </TemplateNothing>
       )}
     />
@@ -99,7 +102,11 @@ const Index = () => (
     <Route
       render={props => (
         <TemplateSidebar pageTitle="404 - Page not found">
-          <Error {...props} title="404" content="Sorry, the route you requested does not exist" />
+          <Error
+            {...props}
+            title="404"
+            content="Sorry, the route you requested does not exist"
+          />
         </TemplateSidebar>
       )}
     />
